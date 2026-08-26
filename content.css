@@ -4,10 +4,10 @@
 }
 
 .gta6-spoiler-blurred > * {
-  filter: blur(20px) !important;
+  filter: blur(30px) !important;
   pointer-events: none !important;
   user-select: none !important;
-  opacity: 0.3 !important;
+  opacity: 0.2 !important;
 }
 
 .gta6-spoiler-badge {
