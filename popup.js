@@ -187,4 +187,7 @@
   });
 
   loadSettings();
+
+  document.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+  document.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
 })();
