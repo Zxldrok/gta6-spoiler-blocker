@@ -6,7 +6,7 @@
 
 html, body {
   width: 400px;
-  min-height: 580px;
+  min-height: 620px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #0f0f1a;
   color: #e0e0e0;
@@ -19,7 +19,7 @@ body::-webkit-scrollbar {
 }
 
 .container {
-  padding: 20px;
+  padding: 24px;
 }
 
 .header {
