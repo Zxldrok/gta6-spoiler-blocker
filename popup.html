@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 6 Spoiler Blocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">🛡️</div>
+      <div class="header-titles">
+        <h1>GTA 6 Spoiler Blocker</h1>
+        <span class="version" id="versionLabel"></span>
+      </div>
+      <label class="toggle-switch" title="Activer / désactiver la protection">
+        <input type="checkbox" id="enableToggle" checked aria-label="Activer la protection">
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <div class="status" id="status">
+      <span class="status-dot active"></span>
+      <span id="statusText">Protection active</span>
+    </div>
+
+    <div class="section card">
+      <div class="section-header">
+        <h2>🔑 Mots-clés</h2>
+        <span class="count" id="keywordCount">0</span>
+      </div>
+      <div class="tags-container" id="keywordTags"></div>
+      <p class="empty-state" id="keywordEmpty">Aucun mot-clé — ajoutes-en un ci-dessous.</p>
+      <div class="input-row">
+        <input type="text" id="keywordInput" placeholder="Ajouter un mot-clé..." class="text-input" aria-label="Nouveau mot-clé" maxlength="60">
+        <button id="addKeyword" class="add-btn" title="Ajouter" disabled>+</button>
+      </div>
+    </div>
+
+    <div class="section card">
+      <div class="section-header">
+        <h2>#️⃣ Hashtags</h2>
+        <span class="count" id="hashtagCount">0</span>
+      </div>
+      <div class="tags-container" id="hashtagTags"></div>
+      <p class="empty-state" id="hashtagEmpty">Aucun hashtag — ajoutes-en un ci-dessous.</p>
+      <div class="input-row">
+        <input type="text" id="hashtagInput" placeholder="Ajouter un hashtag..." class="text-input" aria-label="Nouveau hashtag" maxlength="40">
+        <button id="addHashtag" class="add-btn" title="Ajouter" disabled>+</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>Tweets filtrés : <strong id="filteredCount">0</strong></span>
+      <button id="resetBtn" class="reset-btn" title="Réafficher les tweets masqués sur l'onglet actif">Réinitialiser</button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
