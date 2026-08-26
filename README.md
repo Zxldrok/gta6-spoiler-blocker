@@ -4,7 +4,7 @@ Extension Chrome qui floute automatiquement les leaks et spoilers GTA 6 sur X/Tw
 
 ## Démonstration
 
-https://github.com/Zxldrok/gta6-spoiler-blocker/raw/main/demo.mp4
+![Demo](demo.gif)
 
 ## Fonctionnalités
 
