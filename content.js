@@ -33,12 +33,19 @@
 
   function loadSettings() {
     return new Promise((resolve) => {
-      chrome.storage.sync.get(["enabled", "keywords", "hashtags"], (result) => {
-        enabled = result.enabled !== undefined ? result.enabled : true;
-        keywords = result.keywords || DEFAULT_KEYWORDS;
-        hashtags = result.hashtags || DEFAULT_HASHTAGS;
+      try {
+        chrome.storage.sync.get(["enabled", "keywords", "hashtags"], (result) => {
+          enabled = result.enabled !== undefined ? result.enabled : true;
+          keywords = result.keywords || DEFAULT_KEYWORDS;
+          hashtags = result.hashtags || DEFAULT_HASHTAGS;
+          resolve();
+        });
+      } catch (e) {
+        enabled = true;
+        keywords = DEFAULT_KEYWORDS;
+        hashtags = DEFAULT_HASHTAGS;
         resolve();
-      });
+      }
     });
   }
 
@@ -179,7 +186,9 @@
   }
 
   function updateBadge() {
-    chrome.runtime.sendMessage({ type: "UPDATE_BADGE", count: filteredCount });
+    try {
+      chrome.runtime.sendMessage({ type: "UPDATE_BADGE", count: filteredCount });
+    } catch (e) {}
   }
 
   function scanTweets() {
@@ -259,15 +268,17 @@
   });
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "RESET_FILTER") {
-      resetAndRescan();
-      sendResponse({ ok: true, count: filteredCount });
-      return true;
-    }
-    if (message.type === "GET_COUNT") {
-      sendResponse({ count: filteredCount });
-      return true;
-    }
+    try {
+      if (message.type === "RESET_FILTER") {
+        resetAndRescan();
+        sendResponse({ ok: true, count: filteredCount });
+        return true;
+      }
+      if (message.type === "GET_COUNT") {
+        sendResponse({ count: filteredCount });
+        return true;
+      }
+    } catch (e) {}
     return false;
   });
 
